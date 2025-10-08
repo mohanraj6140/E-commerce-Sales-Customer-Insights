@@ -40,4 +40,16 @@ Power Query (M) – for data cleaning and transformation
 
 DAX (Data Analysis Expressions) – for custom KPIs and measures
 
+
+
+<img width="905" height="510" alt="image" src="https://github.com/user-attachments/assets/38e9c394-c4ec-4a15-81ec-5a7757c62822" />
+
+
+
+
+
+<img width="905" height="510" alt="image" src="https://github.com/user-attachments/assets/60160fb6-217a-4e58-809a-b11bf93dd66f" />
+
+
+
 SQL / Excel / CSV – for data extraction and preprocessing
