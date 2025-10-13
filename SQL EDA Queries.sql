@@ -1,4 +1,4 @@
-1. **Sales Overview Queries**
+1. *Sales Overview Queries*
 1. Total Orders, Delivered Orders, Cancelled Orders
 SELECT
     COUNT(order_id) AS total_orders,
