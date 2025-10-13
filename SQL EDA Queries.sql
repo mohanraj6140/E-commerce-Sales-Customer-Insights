@@ -1,4 +1,5 @@
 1. Sales Overview Queries
+    
 1. Total Orders, Delivered Orders, Cancelled Orders
 SELECT
     COUNT(order_id) AS total_orders,
@@ -6,11 +7,13 @@ SELECT
     SUM(CASE WHEN order_status = 'canceled' THEN 1 ELSE 0 END) AS cancelled_orders
 FROM orders;
 
+
 2. Total Sales & Total Revenue
 SELECT
     SUM(price) AS total_sales,
     SUM(price + freight_value) AS total_revenue
 FROM order_items;
+
 
 3. Orders by Customer State
 SELECT
@@ -20,6 +23,8 @@ FROM orders o
 JOIN customers c ON o.customer_id = c.customer_id
 GROUP BY c.customer_state
 ORDER BY order_count DESC;
+
+
 4. Average Freight by Category
 SELECT
     p.category,
@@ -29,6 +34,7 @@ JOIN products p ON oi.product_id = p.product_id
 GROUP BY p.category
 ORDER BY avg_freight DESC;
 
+
 5. Total Revenue by Category
 SELECT
     p.category,
@@ -37,6 +43,7 @@ FROM order_items oi
 JOIN products p ON oi.product_id = p.product_id
 GROUP BY p.category
 ORDER BY total_revenue DESC;
+
 
 6. Total Revenue & Sales by Geolocation (Customer State)
 SELECT
@@ -58,6 +65,7 @@ FROM customers
 GROUP BY customer_state
 ORDER BY customer_count DESC;
 
+
 8. Repeat vs One-Time Buyers
 SELECT
     CASE 
@@ -73,13 +81,16 @@ FROM (
 GROUP BY customer_type;
 ________________________________________
 3. Review Analysis
-9. Review Score Distribution
+
+    
+    9. Review Score Distribution
 SELECT
     review_score,
     COUNT(order_id) AS review_count
 FROM reviews
 GROUP BY review_score
 ORDER BY review_score;
+
 
 10. Average Review Score by State
 SELECT
@@ -92,7 +103,8 @@ GROUP BY c.customer_state
 ORDER BY avg_review_score DESC;
 ________________________________________
 4. Payment Analysis
-11. Count of Payment Type
+
+    11. Count of Payment Type
 SELECT
     payment_type,
     COUNT(*) AS payment_count,
@@ -101,6 +113,7 @@ FROM payments
 GROUP BY payment_type
 ORDER BY payment_count DESC;
 
+
 12. Total Payment Value by Type
 SELECT
     payment_type,
@@ -108,6 +121,7 @@ SELECT
 FROM payments
 GROUP BY payment_type
 ORDER BY total_payment_value DESC;
+
 
 13. Average Installments by Payment Type
 SELECT
@@ -118,7 +132,8 @@ GROUP BY payment_type
 ORDER BY avg_installment DESC;
 ________________________________________
 5. Optional Deep-Dive Queries
-14. Top 10 Categories by Orders
+
+    14. Top 10 Categories by Orders
 SELECT
     p.category,
     COUNT(oi.order_id) AS total_orders
@@ -127,6 +142,7 @@ JOIN products p ON oi.product_id = p.product_id
 GROUP BY p.category
 ORDER BY total_orders DESC
 LIMIT 10;
+
 
 15. Monthly Sales Trend
 SELECT
